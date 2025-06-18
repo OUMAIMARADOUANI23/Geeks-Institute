@@ -1,0 +1,15 @@
+basket = ["Banana", "Apples", "Oranges", "Blueberries"]
+print("My list is", basket)
+basket.remove('Banana')
+print("My list after Remove Banana ",basket)
+basket.remove('Blueberries')
+print("My list after Remove Blueberries ",basket)
+basket.append('Kiwi')
+print("My list after Add Kiwi ",basket)
+basket.insert(0, 'Apples')
+print("My list after Add Apples ",basket)
+apple=basket.count('Apples')
+print("Number of Apples:", apple)
+basket.clear()
+print("Final basket:", basket)
+
