@@ -1,0 +1,72 @@
+[
+  {
+    "name": "France",
+    "capital": "Paris",
+    "flag": "https://flagcdn.com/fr.svg",
+    "subregion": "Western Europe",
+    "population": 67000000
+  },
+  {
+    "name": "Morocco",
+    "capital": "Rabat",
+    "flag": "https://flagcdn.com/ma.svg",
+    "subregion": "Northern Africa",
+    "population": 36910558
+  },
+  {
+    "name": "Canada",
+    "capital": "Ottawa",
+    "flag": "https://flagcdn.com/ca.svg",
+    "subregion": "Northern America",
+    "population": 38000000
+  },
+  {
+    "name": "Japan",
+    "capital": "Tokyo",
+    "flag": "https://flagcdn.com/jp.svg",
+    "subregion": "Eastern Asia",
+    "population": 125800000
+  },
+  {
+    "name": "Brazil",
+    "capital": "Brasília",
+    "flag": "https://flagcdn.com/br.svg",
+    "subregion": "South America",
+    "population": 211000000
+  },
+  {
+    "name": "Germany",
+    "capital": "Berlin",
+    "flag": "https://flagcdn.com/de.svg",
+    "subregion": "Western Europe",
+    "population": 83000000
+  },
+  {
+    "name": "Kenya",
+    "capital": "Nairobi",
+    "flag": "https://flagcdn.com/ke.svg",
+    "subregion": "Eastern Africa",
+    "population": 53770000
+  },
+  {
+    "name": "India",
+    "capital": "New Delhi",
+    "flag": "https://flagcdn.com/in.svg",
+    "subregion": "Southern Asia",
+    "population": 1380000000
+  },
+  {
+    "name": "Italy",
+    "capital": "Rome",
+    "flag": "https://flagcdn.com/it.svg",
+    "subregion": "Southern Europe",
+    "population": 60360000
+  },
+  {
+    "name": "Australia",
+    "capital": "Canberra",
+    "flag": "https://flagcdn.com/au.svg",
+    "subregion": "Australia and New Zealand",
+    "population": 25690000
+  }
+]
