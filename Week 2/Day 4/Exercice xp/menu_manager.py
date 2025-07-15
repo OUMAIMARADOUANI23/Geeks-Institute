@@ -25,7 +25,7 @@ class MenuManager:
         conn.close()
 
         if result:
-            return MenuItem(*result)
+            return MenuItem(result)
         return None
 
     @classmethod
