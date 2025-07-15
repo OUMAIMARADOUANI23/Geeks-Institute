@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fortune Teller</title>
+</head>
+<body>
+  <div id="Test" style="text-align: center; color: rgb(246, 139, 9);"></div>
+
+  <script>
+    (function(children, partner, location, job) {
+      const sentence = `You will be a ${job} in ${location}, and married to ${partner} with ${children} kids.`;
+      document.getElementById("Test").textContent = sentence;
+    })(3, "Alex", "France", "Web Developer");
+  </script>
+</body>
+</html>

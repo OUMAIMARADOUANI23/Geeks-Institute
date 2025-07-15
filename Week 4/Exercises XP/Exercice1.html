@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center; background-color: rgb(170, 222, 200);">Exercice 1:</h1>
+    <img src="https://www.pngplay.com/wp-content/uploads/5/Hello-Transparent-Images.png" alt="Mon image" style="display: block; margin: 0 auto; width: 800px;" />
+    <script>
+        // #1
+function funcOne() {
+    let a = 5;
+    if(a > 1) {
+        a = 3;
+    }
+    alert(`inside the funcOne function ${a}`);
+}
+
+// #1.1 - Run this:
+funcOne();
+// Expected output: "inside the funcOne function 3"
+// Explanation: `a` is initially 5. Since 5 > 1, the value is reassigned to 3. 
+// So the alert shows 3.
+
+// #1.2 What if we use const instead of let?
+// Error: TypeError: Assignment to constant variable.
+// Explanation: `const` means the value can't be reassigned. 
+// Since we try to do `a = 3`, it will throw an error.
+
+// -------------------------------------------------------
+
+
+
+
+/*
+
+
+// #2
+let a = 0;
+function funcTwo() {
+    a = 5;
+}
+
+function funcThree() {
+    alert(`inside the funcThree function ${a}`);
+}
+
+// #2.1 - Run this:
+funcThree(); // Outputs: "inside the funcThree function 0"
+funcTwo();   // Changes the global variable a to 5
+funcThree(); // Outputs: "inside the funcThree function 5"
+// Explanation: `a` is declared globally with value 0. 
+// funcTwo updates it to 5. funcThree displays the current value of `a`.
+
+// #2.2 What if we use const instead of let?
+// Error: TypeError: Assignment to constant variable.
+// Explanation: If `a` is declared with const, it cannot be reassigned in funcTwo.
+
+// -------------------------------------------------------
+
+// #3
+function funcFour() {
+    window.a = "hello"; // creates a global variable on the window object
+}
+
+function funcFive() {
+    alert(`inside the funcFive function ${a}`);
+}
+
+// #3.1 - Run this:
+funcFour();  // Sets a global variable `a = "hello"`
+funcFive();  // Outputs: "inside the funcFive function hello"
+// Explanation: window.a makes `a` accessible globally. funcFive accesses that value.
+
+// -------------------------------------------------------
+
+// #4
+let a = 1;
+function funcSix() {
+    let a = "test"; // local variable inside the function
+    alert(`inside the funcSix function ${a}`);
+}
+
+// #4.1 - Run this:
+funcSix(); // Outputs: "inside the funcSix function test"
+// Explanation: The inner `a` declared with `let` is local to the function and hides the global one.
+
+// #4.2 What if we use const instead of let?
+// Still works the same way.
+// Explanation: Since there's no reassignment, const behaves the same. It still creates a local variable.
+
+// -------------------------------------------------------
+
+// #5
+let a = 2;
+if (true) {
+    let a = 5;
+    alert(`in the if block ${a}`);
+}
+alert(`outside of the if block ${a}`);
+
+// #5.1 - Run this:
+ // Outputs:
+ // "in the if block 5"
+ // "outside of the if block 2"
+// Explanation: The `let a = 5` inside the block is a separate variable from the outer `a = 2`.
+// They exist in different scopes.
+
+// #5.2 What if we use const instead of let?
+// Same output.
+// Explanation: const also respects block scope. It will still create a separate `a` inside the `if` block.
+
+
+*/
+    </script>
+</body>
+</html>
