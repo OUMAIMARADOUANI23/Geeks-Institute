@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const epic = ['a', 'long', 'time', 'ago', 'in a', 'galaxy', 'far far', 'away'];
+        const epicPhrase = epic.reduce((accumulator, currentValue) => {
+        return accumulator + " " + currentValue;
+        });
+        console.log(epicPhrase);
+    </script>
+</body>
+</html>
