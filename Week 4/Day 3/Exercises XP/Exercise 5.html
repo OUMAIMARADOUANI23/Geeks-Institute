@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Dog {
+            constructor(name) {
+                this.name = name;
+            }
+        };
+        // l’option 2 est correcte
+        class Labrador extends Dog {
+            constructor(name, size) {
+                super(name);
+                this.size = size;
+            }
+        };
+    </script>
+</body>
+</html>
