@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vérifier Anagramme</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input, button {
+      padding: 8px;
+      margin: 5px 0;
+    }
+    #result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Vérifier si deux mots sont des Anagrammes</h2>
+
+  <label for="word1">Mot 1:</label><br>
+  <input type="text" id="word1"><br>
+
+  <label for="word2">Mot 2:</label><br>
+  <input type="text" id="word2"><br>
+
+  <button onclick="checkAnagram()">Vérifier</button>
+
+  <div id="result"></div>
+
+  <script>
+    function isAnagram(str1, str2) {
+      const cleanStr1 = str1.toLowerCase().replace(/\s+/g, '');
+      const cleanStr2 = str2.toLowerCase().replace(/\s+/g, '');
+      const sortedStr1 = cleanStr1.split('').sort().join('');
+      const sortedStr2 = cleanStr2.split('').sort().join('');
+      return sortedStr1 === sortedStr2;
+    }
+
+    function checkAnagram() {
+      const word1 = document.getElementById('word1').value;
+      const word2 = document.getElementById('word2').value;
+      const resultDiv = document.getElementById('result');
+
+      if (isAnagram(word1, word2)) {
+        resultDiv.textContent = `"${word1}" et "${word2}" sont des anagrammes.`;
+        resultDiv.style.color = "green";
+      } else {
+        resultDiv.textContent = `"${word1}" et "${word2}" ne sont pas des anagrammes.`;
+        resultDiv.style.color = "red";
+      }
+    }
+  </script>
+
+</body>
+</html>
