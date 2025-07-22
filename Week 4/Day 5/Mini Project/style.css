@@ -1,0 +1,126 @@
+:root {
+  --main-green: rgb(128, 201, 18);
+  --card-bg: rgb(84, 163, 150);
+  --input-bg: #d6d3d3;
+  --text-dark: #333;
+  --img-bg: rgb(54, 54, 65);
+  --img-size: 200px;
+  --font-title: 'SEGA LOGO FONT', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('https://github.com/devtlv/studentsGitHub/blob/master/JS/Week%204/Day5/Mini%20Projects/Mini%20Project%201%20(Robots)/circuit-pattern.png?raw=true');
+  background-color: rgb(130, 33, 222);
+  background-size: cover;
+  background-repeat: repeat;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#di1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background-color: var(--main-green);
+  font-family: var(--font-title);
+  padding: 1%;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+#di2 {
+  background-color: var(--main-green);
+  background-image: url('https://images.icon-icons.com/2984/PNG/256/gears_cogwheel_settings_icon_187089.png');
+  background-repeat: repeat;
+  background-size: contain;
+  background-position: center;
+  padding: 1.5%;
+  width: 100%;
+  max-width: 960px;
+}
+
+#label1 {
+  font-size: 1.8em;
+  color: rgb(60, 58, 58);
+}
+
+input[type="search"] {
+  padding: 7px;
+  font-size: 1em;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--input-bg);
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 5px;
+
+  margin-top: 120px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 35px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.card {
+  background-image: url('https://github.com/devtlv/studentsGitHub/blob/master/JS/Week%204/Day5/Mini%20Projects/Mini%20Project%201%20(Robots)/card-pattern.png?raw=true');
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  height: 300px;
+  padding-top: 10px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.robot-img {
+  width: var(--img-size);
+  height: var(--img-size);
+  border-radius: 70%;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+  background-color: var(--img-bg);
+}
+
+h2 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 8px 0 2px 12px;
+  padding: 2px;
+}
+
+p {
+  font-size: 0.9em;
+  color: var(--text-dark);
+  margin-left: 12px;
+  margin-top: 5px;
+}

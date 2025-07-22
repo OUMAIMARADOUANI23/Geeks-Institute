@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RoboFriends</title>
+  <link href="https://fonts.cdnfonts.com/css/sega-logo-font" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cards-container">
+    <div id="di1">
+      <label id="label1" for="input1">ROBOFRIENDS</label>
+      <div id="di2">
+        <input type="search" placeholder="Search Robots" id="input1" />
+      </div>
+    </div>
+    <div class="cards-grid" id="cardsGrid">
+    </div>
+  </div>
+
+  <script>
+    const robots = [
+      { id: 1, name: 'Leanne Graham', email: 'Sincere@april.biz', image: 'https://robohash.org/1?200x200' },
+      { id: 2, name: 'Ervin Howell', email: 'Shanna@melissa.tv', image: 'https://robohash.org/2?200x200' },
+      { id: 3, name: 'Clementine Bauch', email: 'Nathan@yesenia.net', image: 'https://robohash.org/3?200x200' },
+      { id: 4, name: 'Patricia Lebsack', email: 'Julianne.OConner@kory.org', image: 'https://robohash.org/4?200x200' },
+      { id: 5, name: 'Chelsey Dietrich', email: 'Lucio_Hettinger@annie.ca', image: 'https://robohash.org/5?200x200' },
+      { id: 6, name: 'Mrs. Dennis Schulist', email: 'Karley_Dach@jasper.info', image: 'https://robohash.org/6?200x200' },
+      { id: 7, name: 'Kurtis Weissnat', email: 'Telly.Hoeger@billy.biz', image: 'https://robohash.org/7?200x200' },
+      { id: 8, name: 'Nicholas Runolfsdottir V', email: 'Sherwood@rosamond.me', image: 'https://robohash.org/8?200x200' },
+      { id: 9, name: 'Glenna Reichert', email: 'Chaim_McDermott@dana.io', image: 'https://robohash.org/9?200x200' },
+      { id: 10, name: 'Clementina DuBuque', email: 'Rey.Padberg@karina.biz', image: 'https://robohash.org/10?200x200' }
+    ];
+
+    const cardsGrid = document.getElementById("cardsGrid");
+    const searchInput = document.getElementById("input1");
+
+    function displayCards(robotsList) {
+      cardsGrid.innerHTML = "";
+      robotsList.forEach(robot => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+          <img src="${robot.image}" alt="robot${robot.id}" class="robot-img"/>
+          <h2 class="card-name">${robot.name}</h2>
+          <p>${robot.email}</p>
+        `;
+
+        cardsGrid.appendChild(card);
+      });
+    }
+
+    displayCards(robots);
+
+    searchInput.addEventListener("input", () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      const filteredRobots = robots.filter(robot =>
+        robot.name.toLowerCase().includes(searchTerm)
+      );
+      displayCards(filteredRobots);
+    });
+  </script>
+</body>
+</html>
