@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Giphy API Test</title>
+</head>
+<body>
+  <h1>Hilarious GIFs</h1>
+  <div id="gif-container"></div>
+
+  <script>
+    const container = document.getElementById("gif-container");
+
+    fetch("https://api.giphy.com/v1/gifs/search?q=hilarious&rating=g&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My")
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+        return res.json();
+      })
+      .then(data => {
+        data.data.forEach(gif => {
+          const img = document.createElement("img");
+          img.src = gif.images.fixed_height.url;
+          container.appendChild(img);
+        });
+      })
+      .catch(err => {
+        container.textContent = "Failed to load GIFs: " + err.message;
+      });
+  </script>
+</body>
+</html>

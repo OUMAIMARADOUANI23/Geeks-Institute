@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sun GIFs - Giphy API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #fefbd8;
+    }
+    #gif-container img {
+      margin: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>🌞 10 GIFs about the Sun</h1>
+  <div id="gif-container"></div>
+
+  <script>
+    const apiKey = "hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My";
+    const url = `https://api.giphy.com/v1/gifs/search?q=sun&limit=10&offset=2&rating=g&api_key=${apiKey}`;
+
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("GIF data object:", data);
+        const container = document.getElementById("gif-container");
+
+        data.data.forEach(gif => {
+          const img = document.createElement("img");
+          img.src = gif.images.fixed_height.url;
+          img.alt = gif.title;
+          container.appendChild(img);
+        });
+      })
+      .catch(error => {
+        console.error("An error occurred:", error);
+        document.getElementById("gif-container").textContent = "Failed to load GIFs.";
+      });
+  </script>
+</body>
+</html>

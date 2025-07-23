@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Star Wars Starship</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0d1b2a;
+      color: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+    }
+    #starship {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #1b263b;
+      border-radius: 8px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚀 Star Wars Starship Info</h1>
+  <div id="starship">Loading...</div>
+
+  <script>
+    async function getStarship() {
+      const url = "https://www.swapi.tech/api/starships/9/";
+      const display = document.getElementById("starship");
+
+      try {
+        const response = await fetch(url);
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        const starship = data.result.properties;
+
+        display.innerHTML = `
+          <h2>${starship.name}</h2>
+          <p><strong>Model:</strong> ${starship.model}</p>
+          <p><strong>Starship Class:</strong> ${starship.starship_class}</p>
+          <p><strong>Manufacturer:</strong> ${starship.manufacturer}</p>
+          <p><strong>Crew:</strong> ${starship.crew}</p>
+          <p><strong>Passengers:</strong> ${starship.passengers}</p>
+        `;
+      } catch (error) {
+        console.error("An error occurred:", error);
+        display.textContent = "Failed to load starship data.";
+      }
+    }
+
+    getStarship();
+  </script>
+</body>
+</html>
