@@ -1,0 +1,2 @@
+Hello, this is a sample text file created for Task 3.
+Node.js makes file operations easy and powerful!
