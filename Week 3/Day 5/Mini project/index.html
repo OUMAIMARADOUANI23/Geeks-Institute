@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Coloring Squares</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+	    padding: 0;
+	    box-sizing: border-box;
+      background-color: rgb(159, 155, 155);
+    }
+
+    button {
+      width: 232px;
+      height: 60px;
+      grid-column: 1/4; 
+      background-color: whitesmoke;
+	    /*border:black;*/
+	    border-radius: 6px;
+	    border-color:black;
+      border-width: 1px;
+	    padding: 0px;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 22px;
+	    margin: 2px;
+	    cursor: pointer;
+    }
+
+    .container {  
+      display: flex;
+      gap: 4.2px;
+      margin: 1px;
+      padding: 6px;
+    }
+
+    .palettes {
+      display: flex;
+      flex-direction: column;
+      gap: 9.5px;
+    }
+
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(3, 40px);
+      /*grid-template-rows: repeat(2.5, 5px); */
+      gap: 40px;
+    }
+
+    .color-swatch {
+      width: 75px;
+      height: 61px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 0.2s;
+      border-color: black;
+    }
+
+    .color-swatch:hover {
+      transform: scale(1.1);
+    }
+
+    .color-swatch.selected {
+      border-color: black;
+    }
+
+    #grid {
+      display: grid;
+      grid-template-columns: repeat(66, 12.4px);
+      grid-template-rows: repeat(28, 16.6px);
+      gap: 3px;
+    }
+
+    .square {
+      width: 20px;
+      height: 18px;
+      background-color: white;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Palette à gauche -->
+    <div class="palettes">
+        <div><button type="button" id="button">Clear</button></div>
+      <div class="palette">
+        <div class="color-swatch" style="background-color: red;" data-color="red"></div>
+        <div class="color-swatch" style="background-color: orangered;" data-color="orangered"></div>
+        <div class="color-swatch" style="background-color: orange;" data-color="orange"></div>
+      </div>
+
+      <div class="palette">
+        <div class="color-swatch" style="background-color: yellow;" data-color="yellow"></div>
+        <div class="color-swatch" style="background-color: rgb(5, 173, 5);" data-color="rgb(5, 173, 5)"></div>
+        <div class="color-swatch" style="background-color: rgb(132, 248, 130);" data-color="rgb(132, 248, 130)"></div>
+      </div>
+
+      <div class="palette">
+        <div class="color-swatch" style="background-color: rgb(20, 116, 13);" data-color="rgb(20, 116, 13)"></div>
+        <div class="color-swatch" style="background-color: rgb(8, 201, 201);" data-color="rgb(8, 201, 201)"></div>
+        <div class="color-swatch" style="background-color: rgb(106, 232, 244);" data-color="rgb(106, 232, 244)"></div>
+      </div>
+
+      <div class="palette">
+        <div class="color-swatch" style="background-color: rgb(110, 172, 231);" data-color="rgb(110, 172, 231)"></div>
+        <div class="color-swatch" style="background-color: rgb(42, 104, 211);" data-color="rgb(42, 104, 211)"></div>
+        <div class="color-swatch" style="background-color: rgb(2, 63, 232);" data-color="rgb(2, 63, 232)"></div>
+      </div>
+
+      <div class="palette">
+        <div class="color-swatch" style="background-color: rgb(13, 4, 143);" data-color="rgb(13, 4, 143)"></div>
+        <div class="color-swatch" style="background-color: rgb(61, 4, 99);" data-color="rgb(61, 4, 99)"></div>
+        <div class="color-swatch" style="background-color: rgba(129, 30, 165, 0.954);" data-color="rgba(129, 30, 165, 0.954)"></div>
+      </div>
+
+      <div class="palette">
+        <div class="color-swatch" style="background-color: rgb(242, 128, 225);" data-color="rgb(242, 128, 225)"></div>
+        <div class="color-swatch" style="background-color: rgb(241, 164, 205);" data-color="rgb(241, 164, 205)"></div>
+        <div class="color-swatch" style="background-color: rgb(197, 203, 203);" data-color="rgb(197, 203, 203)"></div>
+      </div>
+
+      <div class="palette">
+        <div class="color-swatch" style="background-color: rgba(137, 135, 135, 0.758);" data-color="grey"></div>
+        <div class="color-swatch" style="background-color: black;" data-color="black"></div>
+        <div class="color-swatch" style="background-color: white;" data-color="white"></div>
+      </div>
+    </div>
+
+    <!-- Grid à droite -->
+    <div id="grid"></div>
+  </div>
+  <script>
+        const grid = document.getElementById("grid");
+        for (let i = 0; i < 1914; i++) {
+            const square = document.createElement("div");
+            square.classList.add("square");
+            grid.appendChild(square);}
+
+        const squares = grid.querySelectorAll(".square");
+        const colorSwatches = document.querySelectorAll(".color-swatch");
+        const clearButton = document.getElementById("button");
+        let currentColor = "black";
+        let isDrawing = false;
+        colorSwatches.forEach(swatch => {
+          swatch.addEventListener("click", () => {
+            colorSwatches.forEach(s => s.classList.remove("selected"));
+            swatch.classList.add("selected");
+            currentColor = swatch.dataset.color;
+          });
+        });
+        grid.addEventListener("mousedown", () => isDrawing = true);
+        grid.addEventListener("mouseup", () => isDrawing = false);
+        squares.forEach(square => {
+          square.addEventListener("mousedown", () => {
+            square.style.backgroundColor = currentColor;
+          });
+
+          square.addEventListener("mouseover", () => {
+            if (isDrawing) {
+              square.style.backgroundColor = currentColor;
+            }
+          });
+        });
+        clearButton.addEventListener("click", () => {
+          squares.forEach(square => square.style.backgroundColor = "white");
+        });
+        document.body.addEventListener("mousedown", (e) => e.preventDefault());
+  </script>
+</body>
+</html>

@@ -15,10 +15,13 @@
         <input type="search" placeholder="Search Robots" id="input1" />
       </div>
     </div>
+
     <div class="cards-grid" id="cardsGrid">
+      <!-- Les cartes vont être générées ici dynamiquement -->
     </div>
   </div>
 
+  <!-- SCRIPT JS POUR AFFICHER + FILTRER LES CARTES -->
   <script>
     const robots = [
       { id: 1, name: 'Leanne Graham', email: 'Sincere@april.biz', image: 'https://robohash.org/1?200x200' },
@@ -36,8 +39,9 @@
     const cardsGrid = document.getElementById("cardsGrid");
     const searchInput = document.getElementById("input1");
 
+    // Créer les cartes dynamiquement
     function displayCards(robotsList) {
-      cardsGrid.innerHTML = "";
+      cardsGrid.innerHTML = ""; // reset
       robotsList.forEach(robot => {
         const card = document.createElement("div");
         card.className = "card";
@@ -52,8 +56,10 @@
       });
     }
 
+    // Afficher toutes les cartes au début
     displayCards(robots);
 
+    // Ajouter filtre dynamique
     searchInput.addEventListener("input", () => {
       const searchTerm = searchInput.value.toLowerCase();
       const filteredRobots = robots.filter(robot =>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form_t">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="firstname"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lastname"><br><br>
+        <input type="submit" value="Submit" id="submit">
+    </form> 
+    <ul class="usersAnswer"></ul>
+    <script>
+        let form_test=document.getElementById("form_t")
+        console.log(form_test)
+        let input1=document.getElementById("fname")
+        console.log(input1)
+        let input2=document.getElementById("lname")
+        console.log(input2)
+        let input3=document.getElementById("submit")
+        console.log(input3)
+        let total_input=document.querySelectorAll("form input")
+        console.log(total_input)
+        let ul = document.querySelector(".usersAnswer");
+        form_test.addEventListener("submit", function(event) { 
+            event.preventDefault();
+            let fname = input1.value;
+            let lname = input2.value;
+            if (fname !== "" && lname !== ""){
+            let li1 = document.createElement("li");
+            li1.textContent = fname;
+            let li2 = document.createElement("li");
+            li2.textContent = lname;
+            ul.appendChild(li1);
+            ul.appendChild(li2);
+            input1.value = "";
+            input2.value = "";
+            } else {
+                alert("Veuillez remplir les deux champs.");
+            }
+        });
+    </script>
+</body>
+</html>
